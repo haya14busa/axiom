@@ -13,21 +13,21 @@
       </a>
     </div>
     <div class="flex-shrink-0 ml-2 leading-tight font-content-sans">
-      <a class="block text-base text-raven-800 hover:text-raven-900 hover:underline focus:underline" target="_blank" rel="noopener nofollow" title="{{ $author.name }}" href="{{ $author.uri | absURL }}">{{ $author.name }}</a>
+      <a class="block text-base text-raven-800 hover:text-raven-900" target="_blank" rel="noopener nofollow" title="{{ $author.name }}" href="{{ $author.uri | absURL }}">{{ $author.name }}</a>
       <time class="text-sm text-raven-500" datetime="{{ dateFormat "2006-01-02T15:04:05Z" .Date.UTC | safeHTML }}">{{ dateFormat $dateFormat .Date.Local }}</time>
     </div>
   </div>
   <div class="flex items-center space-x-3 text-sm text-raven-500">
     {{- with $author.twitter }}
-      <div class="inline-block">
-        <a href="{{ printf "https://twitter.com/%s" .}}" target="_blank" rel="noopener nofollow">
+      <div class="inline-block ">
+        <a class="hover:text-raven-900" href="{{ printf "https://twitter.com/%s" .}}" target="_blank" rel="noopener nofollow">
           {{ $twitterSVG }} @{{ . }}
         </a>
       </div>
     {{- end }}
     {{- with $author.github }}
       <div class="inline-block">
-        <a href="{{ printf "https://github.com/%s" .}}" target="_blank" rel="noopener nofollow">
+        <a class="hover:text-raven-900" href="{{ printf "https://github.com/%s" .}}" target="_blank" rel="noopener nofollow">
           {{ $githubSVG }} @{{ . }}
         </a>
       </div>

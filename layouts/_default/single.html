@@ -24,9 +24,6 @@
         <div class="flex-grow min-w-0">
           {{ partial "author" . }}
         </div>
-        <div>
-          {{ partial "share" . }}
-        </div>
       </div>
     </div>
   </div>
@@ -45,8 +42,12 @@
         {{- if .Params.toc }}
           <aside class="toc lg:sticky top-2 right-2 self-start justify-self-end mb-8 lg:order-last lg:ml-6 lg:max-h-screen lg:overflow-y-scroll">{{- partial "toc" . }}</aside>
         {{- end }}
-        <article class="cdata">
-        {{- .Content }}
+        <article class="cdata flex-grow max-w-3xl">
+          {{- .Content }}
+          <aside class="flex">
+            <div class="flex-grow"><!--TODO:author--></div>
+            <div>{{ partial "share" . }}</div>
+          </aside>
         </article>
       </div>
       {{ partial "google-adsense-ad-slot" . }}

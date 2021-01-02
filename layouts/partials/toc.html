@@ -1,5 +1,2 @@
-{{- if and (gt .WordCount 400 ) (.Params.toc) }}
-<aside class="toc">
-  {{ .TableOfContents }}
-</aside>
-{{- end }}
+<h3 class="font-semibold italic">Table of Contents</h3>
+{{ .TableOfContents }}

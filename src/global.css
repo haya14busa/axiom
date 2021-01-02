@@ -4,6 +4,10 @@ body {
   @apply antialiased;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* pretty ups */
 a,
 button,

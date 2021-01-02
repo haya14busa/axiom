@@ -1,0 +1,23 @@
+/* TOC navigation */
+.toc {
+  @apply text-gray-600;
+  & li {
+    @apply pt-1 mt-1;
+    @apply border-solid border-t border-gray-200;
+  }
+  & nav > ul > li:first-child {
+    @apply border-none;
+  }
+  & li.active > a {
+    @apply text-black font-bold;
+  }
+  & ul {
+    @apply ml-0;
+  }
+  & li > ul {
+    @apply mt-1;
+    & > li > a {
+      padding-left: 1em;
+    }
+  }
+}

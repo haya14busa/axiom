@@ -20,7 +20,7 @@
     "prd": "NODE_ENV=production npm run css && npm run js",
     "watch": "npm run watch:css & npm run watch:js",
     "watch:css": "chokidar \"./src/**/*.css\" \"./tailwind.config.js\" -c \"NODE_ENV=development npm run css\"",
-    "watch:js": "chokidar \"./src/**/*.js\" -c \"NODE_ENV=development npm run js\""
+    "watch:js": "chokidar \"./src/**/*.js\" -i \"./src/**/*.min.js\" -c \"NODE_ENV=development npm run js\""
   },
   "devDependencies": {
     "autoprefixer": "^10.1.0",

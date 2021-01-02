@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="default-single">
   <div class="ax-title ax-l-o">
-    <div class="ax-l-i{{ printf " %s" (.Params.maxWidthTitle | default "max-w-680") }}">
+    <div class="ax-l-i{{ printf " %s" (.Params.maxWidthTitle | default "max-w-5xl") }}">
 
       {{- with .Params.tags }}
         <div class="ax-tags flex">
@@ -20,7 +20,7 @@
       <p class="post-subtitle font-content-sans font-light text-xl text-raven-500 mt-3">{{- partial "meta-subtitle" . | safeHTML -}}</p>
       {{- end }}
 
-      <div class="ax-meta flex items-center mt-5">
+      <div class="ax-meta flex items-center mt-5 max-w-3xl">
         <div class="flex-grow min-w-0">
           {{ partial "author" . }}
         </div>
@@ -40,11 +40,15 @@
   {{- end -}}
 
   <div class="ax-content ax-l-o">
-    <div class="ax-l-i{{ printf " %s" (.Params.maxWidthContent | default "max-w-680") }}">
-      <article class="cdata">
-      {{- partial "toc" . }}
-      {{- .Content }}
-      </article>
+    <div class="ax-l-i{{ printf " %s" (.Params.maxWidthContentContainer | default "max-w-5xl") }}">
+      <div class="lg:flex">
+        {{- if .Params.toc }}
+          <aside class="toc lg:sticky top-2 right-2 self-start justify-self-end mb-8 lg:order-last lg:ml-6 lg:max-h-screen lg:overflow-y-scroll">{{- partial "toc" . }}</aside>
+        {{- end }}
+        <article class="cdata">
+        {{- .Content }}
+        </article>
+      </div>
       {{ partial "google-adsense-ad-slot" . }}
       {{ partial "disqus" . }}
     </div>

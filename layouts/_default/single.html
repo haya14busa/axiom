@@ -2,6 +2,19 @@
 <div class="default-single">
   <div class="ax-title ax-l-o">
     <div class="ax-l-i{{ printf " %s" (.Params.maxWidthTitle | default "max-w-680") }}">
+
+      {{- with .Params.tags }}
+        <div class="ax-tags flex">
+          {{- $term := index $.Site.Taxonomies "tags" }}
+          {{- range . }}
+            {{- $tag := index $term . }}
+            <a href="{{ $tag.Page.RelPermalink }}" class="text-sm font-semibold inline-block py-0.5 px-1 text-blue-400 last:mr-0 mr-0.5">
+              #{{ $tag.Page.Title }}
+            </a>
+          {{- end }}
+        </div>
+      {{- end }}
+
       <h1 class="post-title font-content-title font-normal leading-tight tracking-default text-40">{{ .Title }}</h1>
       {{- if .Params.subtitle }}
       <p class="post-subtitle font-content-sans font-light text-xl text-raven-500 mt-3">{{- partial "meta-subtitle" . | safeHTML -}}</p>

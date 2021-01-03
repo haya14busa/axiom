@@ -40,7 +40,7 @@
     <div class="ax-l-i{{ printf " %s" (.Params.maxWidthContentContainer | default "max-w-5xl") }}">
       <div class="lg:flex">
         {{- if .Params.toc }}
-          <aside class="toc lg:sticky top-2 right-2 self-start justify-self-end mb-8 lg:order-last lg:ml-6 lg:max-h-screen lg:overflow-y-scroll">{{- partial "toc" . }}</aside>
+          <aside class="toc lg:sticky top-2 right-2 self-start justify-self-end mb-8 lg:order-last lg:ml-6 lg:max-h-screen lg:overflow-y-auto">{{- partial "toc" . }}</aside>
         {{- end }}
         <article class="cdata flex-grow max-w-3xl">
           {{- .Content }}

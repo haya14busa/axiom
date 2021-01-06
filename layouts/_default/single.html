@@ -44,9 +44,17 @@
         {{- end }}
         <article class="cdata flex-grow max-w-3xl">
           {{- .Content }}
-          <aside class="flex">
-            <div class="flex-grow"><!--TODO:author--></div>
-            <div>{{ partial "share" . }}</div>
+          <aside class="flex space-x-3 space-y-4 text-sm items-center flex-wrap justify-end">
+            <div class="flex-grow"></div>
+            {{ partial "share" . }}
+            {{- if $.Site.Params.contentEditBaseURL }}
+              <a class="block text-raven-600 hover:text-raven-900" href="{{ $.Site.Params.contentEditBaseURL }}{{ .Path }}" title="Suggest Edits on GitHub">
+                <div class="flex space-x-2 items-center">
+                  <div>{{- partial "svg/file.svg" (dict "class" "w-6 h-6 fill-current") -}}</div>
+                  <span>Suggest Edits</span>
+                </div>
+              </a>
+            {{- end }}
           </aside>
         </article>
       </div>

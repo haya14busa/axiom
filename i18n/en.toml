@@ -4,6 +4,9 @@ other = "Home"
 [all]
 other = "All"
 
+[atom-feed]
+other = "Atom Feed"
+
 [recent]
 other = "Recent"
 

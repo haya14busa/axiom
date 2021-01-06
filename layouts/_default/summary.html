@@ -2,11 +2,11 @@
 <div class="summary sm:flex">
   <div class="summary-content font-content-sans">
     {{- with .Params.tags }}
-      <aside class="summary-tags">
+      <aside class="summary-tags py-0.5 space-x-1">
         {{- $term := index $.Site.Taxonomies "tags" }}
         {{- range . }}
           {{- $tag := index $term . }}
-          <a href="{{ $tag.Page.RelPermalink }}" class="text-sm font-semibold inline-block py-0.5 px-1 text-blue-400 last:mr-0 mr-0.5">
+          <a href="{{ $tag.Page.RelPermalink }}" class="text-sm font-semibold inline-block text-blue-400">
             #{{ $tag.Page.Title }}
           </a>
         {{- end }}

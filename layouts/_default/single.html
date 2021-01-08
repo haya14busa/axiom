@@ -44,11 +44,20 @@
         {{- end }}
         <article class="cdata flex-grow max-w-3xl">
           {{- .Content }}
-          <aside class="flex space-x-3 space-y-4 text-sm items-center flex-wrap justify-end">
+          <aside class="flex space-x-3 space-y-4 text-sm sm:items-center sm:flex-wrap sm:justify-end flex-col sm:flex-row">
             <div class="flex-grow"></div>
             {{ partial "share" . }}
+            {{- $discussionURL := .Params.discussion | default $.Site.Params.discussionDefaultURL }}
+            {{- if $discussionURL }}
+              <a class="block text-raven-600 hover:text-raven-900" href="{{ $discussionURL }}" target="_blank" rel="noopener" title="Discuss on GitHub">
+                <div class="flex space-x-2 items-center">
+                  <div>{{- partial "svg/github.svg" (dict "class" "w-6 h-6 fill-current") -}}</div>
+                  <span>Discuss on GitHub</span>
+                </div>
+              </a>
+            {{- end }}
             {{- if $.Site.Params.contentEditBaseURL }}
-              <a class="block text-raven-600 hover:text-raven-900" href="{{ $.Site.Params.contentEditBaseURL }}{{ .Path }}" title="Suggest Edits on GitHub">
+              <a class="block text-raven-600 hover:text-raven-900" href="{{ $.Site.Params.contentEditBaseURL }}{{ .Path }}" target="_blank" rel="noopener nofollow" title="Suggest Edits on GitHub">
                 <div class="flex space-x-2 items-center">
                   <div>{{- partial "svg/file.svg" (dict "class" "w-6 h-6 fill-current") -}}</div>
                   <span>Suggest Edits</span>

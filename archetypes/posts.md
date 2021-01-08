@@ -8,6 +8,7 @@ feature = ""
 tags = []
 toc = true
 slug = '{{ .File.BaseFileName }}'
+discussion = ''
 draft = true
 +++
 

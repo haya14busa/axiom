@@ -1,9 +1,17 @@
 {{- $appCSS := resources.Get "app.css" }}
 {{- $customCSS := resources.Get "custom.css" }}
-{{- $slice := slice $appCSS }}
+{{- $slice := slice }}
 {{- if $customCSS }}
 {{- $slice = $slice | append ($customCSS | resources.Minify) }}
 {{- end }}
+{{- /* Append $appCSS to $customCSS to preserve order of tailwind css
+definition. $customCSS may contains tailwind CSS class and it could mess up the
+order of css definition especially for responsive design.
+Example: If axiom theme uses sm:flex-row while the user of axiom uses flex-col,
+$customCSS will contains flex-col and it should not be defined after
+sm:flex-row.
+*/}}
+{{- $slice = $slice | append $appCSS }}
 {{- $bundleCSS := $slice | resources.Concat "bundle.css" }}
 {{- $bundleCSS = printf "%s?v=%d" $bundleCSS.RelPermalink now.Unix }}
 <link rel="preload" as="style" href="{{ $bundleCSS | safeHTML }}" media="all">

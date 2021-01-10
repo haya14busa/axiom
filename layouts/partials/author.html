@@ -20,15 +20,15 @@
   <div class="flex items-center space-x-3 text-sm text-raven-500">
     {{- with $author.twitter }}
       <div class="inline-block">
-        <a class="hover:text-raven-900" href="{{ printf "https://twitter.com/%s" .}}" target="_blank" rel="noopener nofollow">
-          {{ $twitterSVG }}<span class="hidden sm:inline"> @{{ . }}</span>
+        <a class="hover:text-raven-900 space-x-0.5" href="{{ printf "https://twitter.com/%s" .}}" target="_blank" rel="noopener nofollow">
+          {{ $twitterSVG }}<span class="hidden sm:inline">@{{ . }}</span>
         </a>
       </div>
     {{- end }}
     {{- with $author.github }}
       <div class="inline-block">
-        <a class="hover:text-raven-900" href="{{ printf "https://github.com/%s" .}}" target="_blank" rel="noopener nofollow">
-          {{ $githubSVG }}<span class="hidden sm:inline"> @{{ . }}</span>
+        <a class="hover:text-raven-900 space-x-0.5" href="{{ printf "https://github.com/%s" .}}" target="_blank" rel="noopener nofollow">
+          {{ $githubSVG }}<span class="hidden sm:inline">@{{ . }}</span>
         </a>
       </div>
     {{- end }}
